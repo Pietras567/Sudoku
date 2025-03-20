@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="141.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.sudoku.viewproject.LoadGameDialog">
+   <children>
+      <AnchorPane prefHeight="19.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="infoLabel" layoutX="94.0" prefHeight="25.0" prefWidth="422.0" >
+               <font>
+                  <Font name="Comic Sans MS" size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="14.0" mnemonicParsing="false" text="%returnBtn" fx:id="returnButton" onAction="#returnButtonClick" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="33.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="inputText" layoutX="97.0" layoutY="2.0" prefHeight="25.0" prefWidth="268.0" />
+            <!--<Label layoutX="365.0" text=".txt">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>-->
+         </children>
+      </AnchorPane>
+      <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#confirmButtonClick"  />
+      <Label fx:id="resultLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="422.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

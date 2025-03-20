@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="500" prefWidth="500" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.sudoku.viewproject.DifficultyController">
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+    <VBox prefHeight="39.0" prefWidth="460.0">
+     <Button mnemonicParsing="false" onAction="#onSettingsButtonClick" text="%settings" />
+    </VBox>
+  <Label prefHeight="104.0" prefWidth="261.0" text="%sudoku" textAlignment="CENTER">
+      <font>
+         <Font name="Comic Sans MS" size="77.0" />
+      </font></Label>
+  <Label fx:id="welcomeText" text="%selectDifficulty" textAlignment="CENTER">
+      <font>
+         <Font size="22.0" />
+      </font></Label>
+  <Button onAction="#onEasyButtonClick" text="%EASY" />
+  <Button onAction="#onMediumButtonClick" text="%MEDIUM" />
+  <Button onAction="#onHardButtonClick" text="%HARD" />
+  <Label fx:id="authorsLabel" textAlignment="CENTER" >
+    <font>
+        <Font size="15.0" />
+    </font>
+  </Label>
+</VBox>

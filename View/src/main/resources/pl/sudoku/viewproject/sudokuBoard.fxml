@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="670.0" prefWidth="650" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.sudoku.viewproject.SudokuController">
+   <AnchorPane prefHeight="35.0" prefWidth="600.0">
+      <children>
+         <Button fx:id="saveButton" layoutX="286.0" layoutY="5.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="%saveInfoBtn" />
+         <Button fx:id="loadButton" layoutX="384.0" layoutY="5.0" mnemonicParsing="false" onAction="#onLoadButtonClick" text="%loadInfoBtn" />
+         <Button fx:id="checkButton" layoutX="71.0" layoutY="5.0" mnemonicParsing="false" onAction="#onCheckButtonClick" text="%checkInfoBtn" />
+      </children>
+   </AnchorPane>
+
+    <GridPane fx:id="gridPane" layoutX="14.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="20" minWidth="20" prefHeight="469.0" prefWidth="479.0">
+    </GridPane>
+
+
+</AnchorPane>

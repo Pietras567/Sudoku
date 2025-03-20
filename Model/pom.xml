@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>pl.sudoku</groupId>
+    <version>2.0-SNAPSHOT</version>
+    <parent>
+        <groupId>pl.comp</groupId>
+        <artifactId>SudokuGameProject</artifactId>
+        <version>2.0-SNAPSHOT</version>
+      </parent>
+      <artifactId>ModelProject</artifactId>
+      <packaging>jar</packaging>
+
+    <distributionManagement>
+        <site>
+            <id>ModelProject-site</id>
+            <name>ModelProject site</name>
+            <url>/SudokuGame/Model/target/site/</url>
+        </site>
+    </distributionManagement>
+    
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>license.txt</url>
+            <comments>
+                Licencja MIT gwarantuje, że użytkownicy mają pełną swobodę korzystania z oprogramowania.
+                Oznacza to, że mogą przeglądać, modyfikować i rozpowszechniać kod źródłowy bez ograniczeń.
+                Dla projektu uczelnianego to ogromna zaleta, ponieważ pozwala to postronnym osobom na
+                swobodne dostosowanie programu do własnych potrzeb, eksperymentowanie z nim i jego rozbudowę.
+                Promuje to ideę dzielenia się wiedzą, co sprzyja tworzeniu społeczności programistów wokół projektu.
+                Wartość ta jest ważna w środowisku akademickim.
+                Otwarcie kodu źródłowego pod licencją MIT pozwala innym programistom korzystać z kodu projektu w dowolny
+                sposób co może przysłużyć rozwojowi także innych projektów i ulepszaniu zastosowanych rozwiązań.
+            </comments>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>247677</id>
+            <name>Grzegorz Janasek</name>
+            <email>247677@edu.p.lodz.pl</email>
+        </developer>
+        <developer>
+            <id>247678</id>
+            <name>Piotr Janiszek</name>
+            <email>247678@edu.p.lodz.pl</email>
+        </developer>
+    </developers>
+    <description>Projekt grupy laboratoryjnej an_pn_1545</description>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>17</java.version> <!--dodanie do wlasciwosci wersji java -->
+    </properties>
+    <!-- wtyczka checkstyle i jacoco-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.10</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--aktualizacja  wtyczek maven-site-plugin, maven-compiler-plugin i maven-surefire-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <configLocation>checkstyle2023.xml</configLocation>
+                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                    <excludes>module-info.java</excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>checkstyle</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>10.9.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <release>${java.version}</release> <!-- wersja java -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>4.0.0-M8</version>
+            </plugin>
+            <!--Dodanie  Gluon SceneBuilder -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+            </plugin>
+        </plugins>
+    </build>
+    <!--generowanie raportow w formacie HTML -->
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.4.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <configLocation>checkstyle2023.xml</configLocation>
+                    <excludes>module-info.java</excludes>
+                    <inputEncoding>UTF-8</inputEncoding>
+                    <consoleOutput>true</consoleOutput>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>checkstyle</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.10</version>
+                <!-- Ignorowanie klasy main w raportach -->
+                <configuration>
+                    <excludes>
+                        <exclude>pl/sudoku/Main.class</exclude>
+                        <exclude>pl/sudoku/LocaleFromConfig.class</exclude>
+                    </excludes>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            <!--dodanie wtyczek PMD i JXR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>3.3.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.21.0</version>
+            </plugin>
+        </plugins>
+    </reporting>
+<!--    dodanie JUnit-->
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>17.0.6</version>
+        </dependency>
+        <!--Dodanie  Gluon SceneBuilder -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>17.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.14.2.0</version>
+        </dependency>
+    </dependencies>
+</project>
